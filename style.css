@@ -1,0 +1,504 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #6656d9;
+    --primary-dark: #5040bd;
+    --secondary: #8c7cf6;
+    --background: #f6f7fc;
+    --surface: #ffffff;
+    --text: #24243a;
+    --muted: #77788f;
+    --border: #e9e9f2;
+    --success: #159b70;
+    --danger: #d94b62;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.hero {
+    min-height: 470px;
+    padding: 85px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    background: linear-gradient(120deg, #f0edff, #fafaff);
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.tag {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.main-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.formula-card {
+    background: white;
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px #5142aa12;
+    min-width: 320px;
+}
+
+.formula-card > span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.formula {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 25px 0;
+}
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 15px;
+}
+
+.fraction span:first-child {
+    border-bottom: 1px solid;
+}
+
+.formula-card p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.section {
+    padding: 75px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.solver-card,
+.table-card,
+.graph-card,
+.about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 8px 30px #29234d08;
+}
+
+.solver-card {
+    max-width: 850px;
+    margin: auto;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 23px;
+    flex: 1;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px #6656d915;
+}
+
+.input-group small {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 7px;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.clear-btn {
+    background: #f0eff8;
+    color: var(--text);
+    padding: 14px 25px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    background: #e5e2f4;
+}
+
+.message {
+    display: none;
+    padding: 13px;
+    border-radius: 9px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.message.error {
+    display: block;
+    background: #fff0f1;
+    color: var(--danger);
+}
+
+.message.success {
+    display: block;
+    background: #eaf9f3;
+    color: var(--success);
+}
+
+.results-section {
+    background: #f0effa;
+}
+
+.result-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.result-card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    min-width: 0;
+}
+
+.result-card span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.result-card h3 {
+    color: var(--primary);
+    font-size: 21px;
+    margin-top: 12px;
+    overflow-wrap: anywhere;
+}
+
+.status-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.status-card strong {
+    color: var(--primary);
+    margin-left: 8px;
+}
+
+.table-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.table-heading h3 {
+    font-size: 18px;
+}
+
+.table-heading span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+
+th {
+    background: #f7f6fc;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+td {
+    color: var(--muted);
+}
+
+.graph-card {
+    max-width: 1000px;
+    margin: auto;
+    min-height: 350px;
+}
+
+.graph-card canvas {
+    width: 100% !important;
+    max-height: 420px;
+}
+
+.about-section {
+    background: #f0effa;
+}
+
+.about-card {
+    max-width: 800px;
+    margin: auto;
+}
+
+.about-card p {
+    color: var(--muted);
+    margin: 12px 0;
+}
+
+.about-formula {
+    background: #f5f3ff;
+    color: var(--primary);
+    text-align: center;
+    font-size: 23px;
+    font-weight: 700;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 25px 0;
+}
+
+footer {
+    background: #25233b;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer h3 {
+    color: #a89bff;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 12px;
+    color: #c3c0d2;
+    margin-top: 5px;
+}
+
+@media (max-width: 850px) {
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .formula-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .result-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 65px 6%;
+    }
+
+    .section {
+        padding: 55px 5%;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .solver-card,
+    .table-card,
+    .graph-card,
+    .about-card {
+        padding: 20px;
+    }
+
+    .result-cards {
+        gap: 10px;
+    }
+
+    .result-card {
+        padding: 17px 12px;
+    }
+
+    .result-card h3 {
+        font-size: 16px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .table-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

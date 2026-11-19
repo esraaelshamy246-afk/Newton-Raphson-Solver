@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Newton-Raphson Solver</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Math.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.2.0/math.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#home" class="logo">NR<span>Solver.</span></a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#solver">Solver</a>
+            <a href="#results">Results</a>
+            <a href="#graph">Graph</a>
+        </nav>
+    </header>
+
+    <main id="home">
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="tag">NUMERICAL METHODS PROJECT</span>
+
+                <h1>
+                    Solve Equations <br>
+                    <span>With Precision.</span>
+                </h1>
+
+                <p>
+                    An interactive numerical solver that applies
+                    the Newton-Raphson method to find approximate
+                    roots of mathematical equations.
+                </p>
+
+                <a href="#solver" class="main-btn">
+                    Start Solving
+                </a>
+            </div>
+
+            <div class="formula-card">
+                <span>Newton-Raphson Formula</span>
+                <div class="formula">
+                    x<sub>n+1</sub> =
+                    x<sub>n</sub> -
+                    <span class="fraction">
+                        <span>f(x<sub>n</sub>)</span>
+                        <span>f'(x<sub>n</sub>)</span>
+                    </span>
+                </div>
+                <p>Find the root through iterative calculations.</p>
+            </div>
+        </section>
+
+        <section class="solver-section section" id="solver">
+
+            <div class="section-heading">
+                <span class="tag">CALCULATOR</span>
+                <h2>Equation Solver</h2>
+                <p>Enter your equation and define the initial parameters.</p>
+            </div>
+
+            <div class="solver-card">
+
+                <div class="input-group">
+                    <label for="equation">Function f(x)</label>
+                    <input
+                        type="text"
+                        id="equation"
+                        placeholder="e.g. x^3 - x - 2"
+                    >
+                    <small>Use x as the variable. Example: x^2 - 4</small>
+                </div>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+                        <label for="initialGuess">Initial Guess (x₀)</label>
+                        <input
+                            type="number"
+                            id="initialGuess"
+                            placeholder="1.5"
+                            step="any"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="tolerance">Tolerance</label>
+                        <input
+                            type="number"
+                            id="tolerance"
+                            value="0.0001"
+                            min="0.0000000001"
+                            step="any"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="iterations">Max Iterations</label>
+                        <input
+                            type="number"
+                            id="iterations"
+                            value="100"
+                            min="1"
+                            max="1000"
+                            step="1"
+                        >
+                    </div>
+
+                </div>
+
+                <div class="buttons">
+                    <button id="solveBtn" class="main-btn">
+                        Calculate Solution
+                    </button>
+
+                    <button id="clearBtn" class="clear-btn">
+                        Clear
+                    </button>
+                </div>
+
+                <div id="message" class="message" role="alert"></div>
+
+            </div>
+        </section>
+
+        <section class="results-section section" id="results">
+
+            <div class="section-heading">
+                <span class="tag">ANALYSIS</span>
+                <h2>Calculation Results</h2>
+                <p>Your numerical solution will appear below.</p>
+            </div>
+
+            <div class="result-cards">
+
+                <div class="result-card">
+                    <span>Approximate Root</span>
+                    <h3 id="rootResult">—</h3>
+                </div>
+
+                <div class="result-card">
+                    <span>Iterations</span>
+                    <h3 id="iterationResult">—</h3>
+                </div>
+
+                <div class="result-card">
+                    <span>Final Error</span>
+                    <h3 id="errorResult">—</h3>
+                </div>
+
+                <div class="result-card">
+                    <span>Function Value</span>
+                    <h3 id="functionResult">—</h3>
+                </div>
+
+            </div>
+
+            <div class="status-card">
+                <span>Convergence Status:</span>
+                <strong id="statusResult">Waiting for calculation</strong>
+            </div>
+
+            <div class="table-card">
+
+                <div class="table-heading">
+                    <h3>Iteration Details</h3>
+                    <span>Step-by-step calculations</span>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>n</th>
+                                <th>xₙ</th>
+                                <th>f(xₙ)</th>
+                                <th>f'(xₙ)</th>
+                                <th>Error</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="iterationTable">
+                            <tr>
+                                <td colspan="5">
+                                    No calculations yet.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="graph-section section" id="graph">
+
+            <div class="section-heading">
+                <span class="tag">VISUALIZATION</span>
+                <h2>Function Graph</h2>
+                <p>Visualize the function and its approximate root.</p>
+            </div>
+
+            <div class="graph-card">
+                <canvas id="functionChart"></canvas>
+            </div>
+
+        </section>
+
+        <section class="about-section section" id="about">
+            <div class="section-heading">
+                <span class="tag">ABOUT THE METHOD</span>
+                <h2>How It Works</h2>
+            </div>
+
+            <div class="about-card">
+                <p>
+                    The Newton-Raphson method is an iterative
+                    numerical technique used to approximate
+                    the roots of a real-valued function.
+                </p>
+
+                <div class="about-formula">
+                    x<sub>n+1</sub> =
+                    x<sub>n</sub> -
+                    f(x<sub>n</sub>) / f'(x<sub>n</sub>)
+                </div>
+
+                <p>
+                    Starting from an initial guess, the method
+                    repeatedly calculates a better approximation
+                    until the required tolerance is reached.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h3>NR Solver.</h3>
+        <p>Numerical Methods Project | Newton-Raphson Method</p>
+        <p>Designed and developed using HTML, CSS & JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
